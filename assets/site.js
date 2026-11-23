@@ -18,6 +18,33 @@ function element(tag, className, text) {
   return node;
 }
 
+const navToggle = document.querySelector('.nav-toggle');
+const sectionLinks = document.getElementById('section-links');
+
+function closeNavigation() {
+  navToggle.setAttribute('aria-expanded', 'false');
+}
+
+navToggle.addEventListener('click', () => {
+  const open = navToggle.getAttribute('aria-expanded') === 'true';
+  navToggle.setAttribute('aria-expanded', String(!open));
+});
+
+sectionLinks.addEventListener('click', closeNavigation);
+document.addEventListener('click', event => {
+  if (!navToggle.contains(event.target) && !sectionLinks.contains(event.target)) closeNavigation();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+    closeNavigation();
+    navToggle.focus();
+  }
+});
+document.addEventListener('focusin', event => {
+  if (event.target !== navToggle && !sectionLinks.contains(event.target)) closeNavigation();
+});
+window.matchMedia('(max-width:600px)').addEventListener('change', closeNavigation);
+
 for (const button of document.querySelectorAll('.lang-btn')) {
   button.addEventListener('click', () => {
     const lang = button.id.replace('btn-', '');

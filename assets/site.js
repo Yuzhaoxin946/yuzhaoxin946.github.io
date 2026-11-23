@@ -66,14 +66,14 @@ function addPublication(paper) {
   const folder = new URL('.', source).pathname.split('/').filter(Boolean).pop();
   const article = element('article', 'pub');
   article.dataset.topic = paper.topic;
-  const link = element('a', 'paper-link');
+  const link = element('a', 'paper-link', paper.title);
   link.href = paper.url;
   link.target = '_blank';
   link.rel = 'noopener';
   const content = element('div', 'paper-text');
-  const title = element('h3', 'pub-title', paper.title);
+  const title = element('h3', 'pub-title');
   title.id = 'paper-' + folder;
-  link.setAttribute('aria-labelledby', title.id);
+  title.append(link);
   const authors = element('div', 'pub-authors');
   paper.authors.forEach((name, i) => {
     if (i) authors.append(', ');
@@ -88,8 +88,7 @@ function addPublication(paper) {
   figure.alt = '';
   figure.decoding = 'async';
   figure.src = new URL(paper.figure, source).href;
-  link.append(content, figure);
-  article.append(link);
+  article.append(content, figure);
   list.append(article);
   papers.push(paper);
 }

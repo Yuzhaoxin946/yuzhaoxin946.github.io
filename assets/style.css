@@ -11,7 +11,7 @@ body[data-lang=en] .zh, body[data-lang=zh] .en,.hidden,.drawer:not(.open){displa
 .masthead-nav a,.lang-btn{border:0;padding:4px 11px;text-decoration:none;border-radius:5px;font-weight:520;font-size:14px;line-height:1.55}
 .masthead-nav a{background:linear-gradient(#fff,#ececec);box-shadow:0 1px 1px #aaa}.lang-btn{background:transparent}.lang-btn.active,.filter-btn.active{background:#353535;color:#fff;box-shadow:inset 0 1px 2px #151515}.masthead-nav a:hover,.pub-bar :is(a,button):hover{background:#ddd}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.36fr);gap:5%;align-items:center;padding:40px 0}.hero-main{max-width:720px}
-.nameplate{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}.nameplate h1{font-size:clamp(50px,6.3vw,90px);letter-spacing:-.075em;line-height:1.05;font-weight:590}.cn-sub{font-size:24px;color:#565656;letter-spacing:.06em}
+.nameplate{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}.nameplate h1{font-size:clamp(42px,5vw,68px);letter-spacing:-.075em;line-height:1.05;font-weight:590}.cn-sub{font-size:24px;color:#565656;letter-spacing:.06em}
 .lead{line-height:1.75;color:#494949;margin:22px 0;max-width:69ch}.lead strong{font-weight:560;color:#242424}
 .contact{list-style:none;flex-wrap:wrap;gap:5px 16px;padding:0}.contact a{font-size:14px}
 .hero-side{position:relative;display:grid;place-items:center;min-height:240px}.hero-side:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#555 0 16%,#999 19%,#fff 32%,transparent 37%) 0 0/8px 8px;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
@@ -33,7 +33,7 @@ h2{font-size:clamp(23px,2.4vw,32px);font-weight:600;letter-spacing:-.047em;line-
   .hero{grid-template-columns:minmax(0,1fr) clamp(76px,23vw,128px);gap:0 12px;padding:24px 0}
   .hero-main{display:contents}
   .nameplate{grid-column:1;grid-row:1;align-items:start;flex-direction:column;gap:6px}
-  .nameplate h1{font-size:clamp(32px,8.3vw,52px)}
+  .nameplate h1{font-size:clamp(29px,7.5vw,44px)}
   .cn-sub{font-size:18px}
   .hero-side{grid-column:2;grid-row:1;min-height:0}
   .portrait-box{width:100%;padding:3px}

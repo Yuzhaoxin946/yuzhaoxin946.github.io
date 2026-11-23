@@ -133,3 +133,17 @@ const publicationLoads = publicationFolders.map(folder => new Promise(resolve =>
   document.head.append(script);
 }));
 Promise.all(publicationLoads).then(buildFilters);
+
+const wechatLink = document.getElementById('wechat-link');
+const wechatDialog = document.getElementById('wechat-dialog');
+wechatLink.addEventListener('click', event => {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !wechatDialog.showModal) return;
+  event.preventDefault();
+  wechatDialog.showModal();
+});
+wechatDialog.addEventListener('click', event => {
+  if (event.target !== wechatDialog) return;
+  const bounds = wechatDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right ||
+      event.clientY < bounds.top || event.clientY > bounds.bottom) wechatDialog.close();
+});

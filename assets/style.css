@@ -306,3 +306,14 @@ body .nameplate h1{letter-spacing:-.032em}
   .masthead-nav a{display:flex;align-items:center;padding:0 12px;background:none;box-shadow:none}
   .masthead-nav a:focus-visible,.masthead-nav a:hover{background:#e5e5e5}
 }
+
+#wechat-dialog{
+  width:min(360px,calc(100% - 32px));max-height:90vh;margin:auto;padding:20px;
+  color:var(--ink);background:white;border:1px solid #aaa;border-radius:13px;
+  box-shadow:0 10px 40px #0003;
+}
+#wechat-dialog::backdrop{background:#0006}
+.wechat-heading{display:flex;align-items:center;justify-content:space-between}
+.wechat-heading h2{font-size:24px}
+.wechat-heading button{min-height:44px;padding:0 10px;border:0;background:none;text-decoration:underline;text-underline-offset:4px}
+#wechat-dialog img{display:block;width:min(100%,62vh);margin:auto;padding:8%;background:white}

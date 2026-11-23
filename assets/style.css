@@ -1,0 +1,283 @@
+:root{color-scheme:light;--ink:#222;--muted:#545454;--line:#c7c7c7;--mono:"SFMono-Regular",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+html{background:#dedede;scroll-behavior:smooth}
+body{max-width:1180px;margin:30px auto;padding:0 clamp(20px,3.6vw,55px) 22px;border:1px solid #aaa;border-radius:23px;background:linear-gradient(112deg,#f5f5f5,#e8e8e8 72%,#eee);box-shadow:inset 0 2px 0 white,0 8px 30px #0001;color:var(--ink);font:16px/1.6 "Helvetica Neue",Arial,"PingFang SC",sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul{margin:0}a{color:inherit;text-underline-offset:4px}button{cursor:pointer;color:inherit;font:inherit}a:focus-visible,button:focus-visible{outline:2px solid #333;outline-offset:3px}
+body[data-lang=en] .zh, body[data-lang=zh] .en,.hidden,.drawer:not(.open){display:none!important}
+.masthead,.masthead-nav,.lang-switch,.contact,.filter-row,.pub-bar,.service-tags{display:flex;align-items:center}
+.lang-switch{margin-left:auto}
+.masthead{padding:20px 0;gap:18px;border-bottom:1px solid #bebebe;box-shadow:0 1px #fff}
+.masthead-nav,.lang-switch{padding:3px;border-radius:8px;border:1px solid #b7b7b7;background:#dadada;box-shadow:inset 0 1px 2px #0001;gap:3px}
+.masthead-nav a,.lang-btn{border:0;padding:4px 11px;text-decoration:none;border-radius:5px;font-weight:520;font-size:14px;line-height:1.55}
+.masthead-nav a{background:linear-gradient(#fff,#ececec);box-shadow:0 1px 1px #aaa}.lang-btn{background:transparent}.lang-btn.active,.filter-btn.active{background:#353535;color:#fff;box-shadow:inset 0 1px 2px #151515}.masthead-nav a:hover,.pub-bar :is(a,button):hover{background:#ddd}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.36fr);gap:5%;align-items:center;padding:40px 0}.hero-main{max-width:720px}
+.nameplate{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}.nameplate h1{font-size:clamp(50px,6.3vw,90px);letter-spacing:-.075em;line-height:1.05;font-weight:590}.cn-sub{font-size:24px;color:#565656;letter-spacing:.06em}
+.lead{line-height:1.75;color:#494949;margin:22px 0;max-width:69ch}.lead strong{font-weight:560;color:#242424}
+.contact{list-style:none;flex-wrap:wrap;gap:5px 16px;padding:0}.contact a{font-size:14px}
+.hero-side{position:relative;display:grid;place-items:center;min-height:240px}.hero-side:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#555 0 16%,#999 19%,#fff 32%,transparent 37%) 0 0/8px 8px;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+.portrait-box{width:min(72%,180px);position:relative;padding:5px;background:linear-gradient(130deg,#bcbcbc,#f9f9f9);border:1px solid #a6a6a6;border-radius:12px;box-shadow:0 2px 5px #0002}.portrait-box img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:7px}
+section{scroll-margin-top:14px;margin:0}.panel{padding:28px 30px;border:1px solid #bcbcbc;background:#fafafa;border-radius:13px;box-shadow:inset 0 1px 3px #0001,0 1px 0 #fff}
+h2{font-size:clamp(23px,2.4vw,32px);font-weight:600;letter-spacing:-.047em;line-height:1.25}.sec-head{margin-bottom:19px}
+.filter-row,.pub-bar,.service-tags{flex-wrap:wrap;gap:6px}.filter-row{padding-bottom:17px}.filter-btn,.pub-bar button,.pub-bar a{border:1px solid #c7c7c7;background:#f1f1f1;border-radius:5px;padding:3px 8px;font-size:13px;text-decoration:none;line-height:1.6}
+.pub{display:block;padding:21px 0;border-top:1px solid #d3d3d3}.pub:last-child{padding-bottom:2px}.pub-yr,.dt{font:13px/1.6 var(--mono);color:#5e5e5e}.pub-title{font-size:20px;letter-spacing:-.025em;line-height:1.35;font-weight:600}.pub-authors,.pub-venue{margin:5px 0;color:var(--muted);font-size:14px}.pub-authors strong,.pub-venue span{color:#292929;font-weight:600}.pub-venue span{margin-right:5px}.tldr{margin:10px 0;color:#383838;line-height:1.55}.tldr b{font:600 13px var(--mono);margin-right:9px}.drawer{margin-top:12px;background:#eee;border-radius:5px;padding:12px 16px;overflow-wrap:anywhere}.drawer pre{margin:0;white-space:pre-wrap;font:13px/1.6 var(--mono)}
+#research,#updates,#background{padding:25px 0 30px;border-top:1px solid #c3c3c3}#updates{margin-top:27px}.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.pillar:not(:first-child){border-left:1px solid #c6c6c6;padding-left:24px}.pillar h3{font-size:18px;font-weight:600;line-height:1.4;margin-bottom:8px}.pillar p,.log-list{font-size:16px;color:#505050}.log-list{list-style:none;padding:0}.log-list li{display:grid;grid-template-columns:105px 1fr;gap:16px;padding:10px 0;border-top:1px solid #d1d1d1}.log-list li:first-child{border:0}.service-tags span{font-size:14px;border-radius:4px;padding:1px 7px;border:1px solid #c5c5c5}.end{display:flex;justify-content:space-between;border-top:1px solid #bbb;padding-top:14px;font-size:13px;color:#555}
+@media(max-width:1220px){body{margin:20px 3vw}}
+
+.mobile-filter{display:none}
+@media(max-width:760px){
+  body{margin:8px;padding:0 clamp(12px,4vw,24px) 18px;border-radius:16px}
+  .masthead{flex-wrap:wrap;padding:12px 0;gap:10px}
+  .masthead-nav a{min-width:44px;white-space:nowrap}
+  .masthead-nav a,.lang-btn{min-height:44px;display:grid;place-items:center;padding:2px 3px}
+  .lang-btn{min-width:44px}
+  .hero{grid-template-columns:minmax(0,1fr) clamp(76px,23vw,128px);gap:0 12px;padding:24px 0}
+  .hero-main{display:contents}
+  .nameplate{grid-column:1;grid-row:1;align-items:start;flex-direction:column;gap:6px}
+  .nameplate h1{font-size:clamp(32px,8.3vw,52px)}
+  .cn-sub{font-size:18px}
+  .hero-side{grid-column:2;grid-row:1;min-height:0}
+  .portrait-box{width:100%;padding:3px}
+  .hero-side:before{display:none}
+  .lead,.contact{grid-column:1/-1}
+  .lead{margin:18px 0 8px}
+  .contact{gap:0 16px}
+  .contact a{display:inline-flex;align-items:center;min-height:44px}
+  .contact li:first-child{flex-basis:100%}
+  .pillars{grid-template-columns:1fr;gap:15px}
+  .pillar:not(:first-child){border:0;padding:0}
+  .pillar h3{margin-bottom:3px}
+  .panel{padding:20px clamp(10px,3vw,20px)}
+  .filter-row{display:none}
+  .mobile-filter{display:block;margin-bottom:14px}
+  .mobile-filter label{font-size:14px;color:var(--muted)}
+  .mobile-filter select{display:block;margin-top:3px;width:100%;min-height:44px;border:1px solid #aaa;border-radius:6px;color:var(--ink);background:#f1f1f1;padding:5px 8px;font:inherit;font-size:16px}
+  .pub{grid-template-columns:minmax(0,1fr);gap:4px;padding:18px 0}
+  .pub-title{font-size:18px;overflow-wrap:anywhere}
+  .pub-bar a,.pub-bar button{min-height:44px;display:inline-flex;align-items:center;padding:4px 10px}
+  .log-list li{grid-template-columns:minmax(0,1fr);gap:3px}
+  .end{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Source Serif 4
+Google Inc.
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+ */
+@font-face{font-family:"Source Serif 4";src:url(fonts/source-serif-4.woff2) format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+/* Source Sans 3
+Google Inc.
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+ */
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3.woff2) format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+
+body{font-family:"Source Sans 3","PingFang SC","Microsoft YaHei",sans-serif}
+body :is(.nameplate h1,.cn-sub,h2,h3){font-family:"Source Serif 4","Songti SC","SimSun",serif;font-weight:520;letter-spacing:-.017em}
+body .cn-sub{letter-spacing:.04em}
+body .nameplate h1{letter-spacing:-.032em}
+
+.pub-venue{font-weight:600;color:#343434}
+.pub-authors sup{font-size:.78em;line-height:0}
+.equal-note{font-size:13px;color:var(--muted);margin:0 0 12px}
+
+.pub,.pub:last-child{padding:0}
+.paper-link{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,30%);align-items:center;
+  gap:clamp(16px,3vw,38px);padding:22px 0;color:inherit;text-decoration:none;
+}
+.paper-link:focus-visible{outline-offset:2px;border-radius:3px}
+.paper-figure{
+  display:block;width:100%;aspect-ratio:2 / 1;object-fit:contain;background:#fff;
+  box-sizing:border-box;border:1px solid #d8d8d8;border-radius:5px;padding:4px;
+  filter:grayscale(1);transition:filter 180ms ease;
+}
+.paper-link .tldr{margin-bottom:0}
+@media(hover:hover){.paper-link:hover .paper-figure{filter:grayscale(0)}}
+.paper-link:focus-visible .paper-figure,.paper-link:active .paper-figure{filter:grayscale(0)}
+@media(max-width:760px){
+  .paper-link{grid-template-columns:minmax(0,1fr);gap:14px;padding:18px 0}
+  .paper-link .pub-authors{margin:8px 0 3px}
+  .paper-link .pub-venue{margin:0}
+}
+@media(prefers-reduced-motion:reduce){.paper-figure{transition:none}}

@@ -1,13 +1,14 @@
-// Display order, top to bottom. Each name is a folder beside this file.
+// First and co-first authors together, then other authorships. Within each group,
+// accepted papers first; newest acceptance or preprint submission first.
 const publicationFolders = [
   "physlogic",
-  "latentseek",
   "beda",
   "naacl2025",
-  "graph-self-training",
-  "examining",
   "tire",
+  "examining",
   "gradcuit",
+  "latentseek",
+  "graph-self-training",
   "dd-srad",
   "yayi2"
 ];

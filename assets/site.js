@@ -120,6 +120,36 @@ function addPublication(paper) {
   papers.push(paper);
 }
 
+function injectPublicationsSchema() {
+  if (!papers.length) return;
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Publications by Zhaoxin Yu (余昭昕)',
+    itemListElement: papers.map((paper, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'ScholarlyArticle',
+        headline: paper.title,
+        name: paper.title,
+        url: paper.url,
+        author: paper.authors.map(name => (
+          name === 'Zhaoxin Yu'
+            ? { '@type': 'Person', '@id': 'https://yuzhaoxin946.github.io/#person', name }
+            : { '@type': 'Person', name }
+        )),
+        isPartOf: { '@type': 'PublicationVolume', name: paper.venue },
+        abstract: paper.tldr?.en
+      }
+    }))
+  };
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(schema);
+  document.head.append(script);
+}
+
 // Classic scripts also work when the page is opened directly from disk.
 const publicationLoads = publicationFolders.map(folder => new Promise(resolve => {
   const script = document.createElement('script');
@@ -132,7 +162,10 @@ const publicationLoads = publicationFolders.map(folder => new Promise(resolve =>
   };
   document.head.append(script);
 }));
-Promise.all(publicationLoads).then(buildFilters);
+Promise.all(publicationLoads).then(() => {
+  buildFilters();
+  injectPublicationsSchema();
+});
 
 const wechatLink = document.getElementById('wechat-link');
 const wechatDialog = document.getElementById('wechat-dialog');

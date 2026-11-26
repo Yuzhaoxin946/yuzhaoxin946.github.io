@@ -77,7 +77,9 @@ function buildFilters() {
     button.dataset.topic = key;
     for (const [i, lang] of ['en', 'zh'].entries()) {
       const text = labels[i] + ' (' + count + ')';
-      button.append(element('span', lang, text));
+      const span = element('span', lang, text);
+      if (lang === 'zh') span.setAttribute('data-nosnippet', '');
+      button.append(span);
       document.querySelector('.mobile-filter .' + lang + ' select').add(new Option(text, key));
     }
     button.addEventListener('click', () => selectTopic(key));
@@ -108,8 +110,9 @@ function addPublication(paper) {
     if (paper.equalFirstAuthors?.includes(name)) authors.append(element('sup', '', '*'));
   });
   const summary = element('p', 'tldr');
-  summary.append(element('b', '', 'TL;DR'), element('span', 'en', paper.tldr.en),
-    element('span', 'zh', paper.tldr.zh));
+  const zhTldr = element('span', 'zh', paper.tldr.zh);
+  zhTldr.setAttribute('data-nosnippet', '');
+  summary.append(element('b', '', 'TL;DR'), element('span', 'en', paper.tldr.en), zhTldr);
   content.append(title, authors, element('div', 'pub-venue', paper.venue), summary);
   const figure = element('img', 'paper-figure');
   figure.alt = '';
